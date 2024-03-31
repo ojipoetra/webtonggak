@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>RSTGH | {{$judul}}</title>
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}" />
     <link rel="stylesheet" href="{{asset('css/app-dark.css')}}" />
     <link rel="stylesheet" href="{{asset('css/fileuploader.css')}}" />
-    <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
-    <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="{{asset('assets/logo.png')}}" type="image/x-icon">
+    {{-- <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" /> --}}
 </head>
 
 <body>
@@ -19,7 +20,7 @@
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
-                        <a href=""><img src="assets/logo.png" alt="" style="height: 75px; weight:75px"></a>
+                        <a href=""><img src="{{asset('assets/logo.png')}}" alt="" style="height: 75px; weight:75px"></a>
                         
                         <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -65,14 +66,14 @@
                             </a>
                         </li>
                         <li class="sidebar-title">Forms &amp; Documents</li>
-                        <li class="sidebar-item active">
-                            <a href="fileupload" class="sidebar-link">
+                        <li class="sidebar-item {{ Request::is('fileupload/create') ? 'active' : '' }}">
+                            <a href="{{url('/fileupload/create')}}" class="sidebar-link">
                                 <i class="bi bi-cloud-arrow-up-fill"></i>
                                 <span>File Uploader</span>
                             </a>
                         </li>
-                        <li class="sidebar-item ">
-                            <a href="table.html" class="sidebar-link">
+                        <li class="sidebar-item {{ Request::is('fileupload') ? 'active' : '' }}">
+                            <a href="{{url('/fileupload')}}" class="sidebar-link">
                                 <i class="bi bi-grid-1x2-fill"></i>
                                 <span>Document</span>
                             </a>
@@ -92,7 +93,7 @@
             <div class="page-heading">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>File Uploader</h3>
+                        <h3>{{$judul}}</h3>
                         <p class="text-subtitle text-muted">
                             masukan file yang ingin di upload
                         </p>
@@ -101,8 +102,11 @@
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <form action="" method="post">
-                                        <a href="">Logout <i class="bi bi-arrow-up-right-circle-fill fs-5"></i></a>
+                                    <form action="/logout" method="post">
+                                        @csrf
+                                        @method('POST')
+                                        <button type="submit" style="background: none; outline: none;">Logout <i class="bi bi-arrow-up-right-circle-fill fs-5"></i></button>
+                                        {{-- <a href="">Logout </a> --}}
                                     </form>
                                 </li>
                             </ol>
@@ -127,6 +131,7 @@
             </footer>
         </div>
     </div>
+    @include('sweetalert::alert')
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

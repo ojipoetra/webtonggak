@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Fileupload;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class FileuploadController extends Controller
 {
@@ -12,7 +15,8 @@ class FileuploadController extends Controller
      */
     public function index()
     {
-        return view('dashboard.fileuploader');
+        $documen = Fileupload::all();
+        return view('dashboard.documentfile', compact('documen'), ['judul' => 'File Uploader']);
     }
 
     /**
@@ -20,7 +24,7 @@ class FileuploadController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.fileuploader', ['judul' => 'File Uploader']);
     }
 
     /**
@@ -28,32 +32,26 @@ class FileuploadController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'file' => 'required|file|max:2048',
+        $validateData = $request->validate([
+            'deskripsi' => 'required',
+            'name_file' => 'required|mimes:doc,docx,pdf,xls,xlsx,ppt,pptx'
         ]);
 
-        $fileModel = new Fileupload;
-
-        if ($request->file()) {
-            $fileName = time() . '_' . $request->file->getClientOriginalName();
-            $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
-
-            $fileModel->name = time() . '_' . $request->file->getClientOriginalName();
-            $fileModel->file_path = '/storage/' . $filePath;
-            $fileModel->save();
-
-            return back()
-                ->with('success', 'File has been uploaded.')
-                ->with('file', $fileName);
+        // $file = $request->file('dokumen');
+        if ($request->file('name_file')) {
+            $validateData['name_file'] = $request->file('name_file')->store('assets-file');
         }
-    }
+        Alert::success('Success', 'Data berhasil diupload');
 
+        Fileupload::create($validateData);
+        return redirect('/fileupload')->with('success', 'Data berhasil diupload');
+    }
     /**
      * Display the specified resource.
      */
     public function show(Fileupload $fileupload)
     {
-        //
+        // $documen = Fileupload::all();
     }
 
     /**
@@ -61,7 +59,10 @@ class FileuploadController extends Controller
      */
     public function edit(Fileupload $fileupload)
     {
-        //
+
+        // return view('dashboard.documentfileupdate', ['titte' => 'File Uploader (Update)'], compact('fileupload'));
+        $fileupdate = Fileupload::find($fileupload->id);
+        return view('dashboard.documentfileupdate', compact('fileupdate'), ['judul' => 'File Uploader (Update)']);
     }
 
     /**
@@ -69,7 +70,19 @@ class FileuploadController extends Controller
      */
     public function update(Request $request, Fileupload $fileupload)
     {
-        //
+        $validateData = $request->validate([
+            'deskripsi' => 'required',
+            'name_file' => 'required|mimes:doc,docx,pdf,xls,xlsx,ppt,pptx'
+        ]);
+
+        // $file = $request->file('dokumen');
+        if ($request->file('name_file')) {
+            $validateData['name_file'] = $request->file('name_file')->store('assets-file');
+        }
+        Alert::success('Success', 'Data berhasil diupdate');
+
+        Fileupload::where('id', $fileupload->id)->update($validateData);
+        return redirect('/fileupload')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -77,6 +90,27 @@ class FileuploadController extends Controller
      */
     public function destroy(Fileupload $fileupload)
     {
-        //
+        // $title = 'Delete User!';
+        // $text = "Are you sure you want to delete?";
+        // confirmDelete($title, $text);
+        // Storage::delete($fileupload->name_file);
+        // Fileupload::destroy($fileupload->id);
+
+        // return redirect('/fileupload')->with('success', 'Data berhasil dihapus');
+
+        // $title = 'Delete File!';
+        // $text = "Are you sure you want to delete?";
+
+        // Menggunakan metode alert() dari SweetAlert Laravel Wrapper
+        // alert()->warning($title, $text)->persistent(true)->showConfirmButton('Ya', '#3085d6')->showCancelButton('Batal', '#aaa')->reverseButtons(true);
+        // alert()->confirmDelete($title, $text)->persistent(true)->showConfirmButton('Ya', '#3085d6')->showCancelButton('Batal', '#aaa')->reverseButtons(true);
+        $title = "Kamu Yakin Ingin Mneghapus ?";
+        $text = "Data yang dihapus tidak bisa dikembalikan";
+        confirmDelete($title, $text);
+
+        Storage::delete($fileupload->name_file);
+        Fileupload::destroy($fileupload->id);
+
+        return redirect('/fileupload')->with('delete', 'Data berhasil dihapus');
     }
 }

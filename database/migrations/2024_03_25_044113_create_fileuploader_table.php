@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('fileuploader', function (Blueprint $table) {
-            $table->string('code_doc', 50)->primary();
+            $table->id();
+            $table->text('deskripsi', 100);
             $table->string('name_file', 100);
-            $table->varchar('path_file', 100);
+            $table->timestamps();
         });
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AkunController;
 use App\Http\Controllers\FileuploadController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,17 +50,10 @@ Route::get('/ugd', function () {
 });
 
 Route::get('/farmasi', function () {
-    return view('menu.fasilitas.farmasi');
+    return view('menu.fasilitas.farmasi')->name('farmasi');
 });
 
-// login
-Route::get('/login', function () {
-    return view('menu.login.login');
-});
-
-// dashboard
-// Route::get('/dashboard', function () {
-//     return view('dashboard.fileuploder');
-// });
-
-Route::resource('fileupload', FileuploadController::class);
+Route::resource('akun', AkunController::class)->middleware('guest');
+Route::post('/akun/create', [AkunController::class, 'login'])->name('akun/create')->middleware('guest');
+Route::post('/logout', [AkunController::class, 'logout'])->middleware('auth');
+Route::resource('fileupload', FileuploadController::class)->middleware('auth');

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Fileupload extends Model
 {
     use HasFactory;
+    protected $fillable = ['deskripsi', 'name_file'];
     protected $table = 'fileuploader';
-    protected $primaryKey = 'code_doc';
+    // protected $primaryKey = 'code_doc';
 }
