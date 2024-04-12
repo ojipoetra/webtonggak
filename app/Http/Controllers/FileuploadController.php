@@ -90,20 +90,6 @@ class FileuploadController extends Controller
      */
     public function destroy(Fileupload $fileupload)
     {
-        // $title = 'Delete User!';
-        // $text = "Are you sure you want to delete?";
-        // confirmDelete($title, $text);
-        // Storage::delete($fileupload->name_file);
-        // Fileupload::destroy($fileupload->id);
-
-        // return redirect('/fileupload')->with('success', 'Data berhasil dihapus');
-
-        // $title = 'Delete File!';
-        // $text = "Are you sure you want to delete?";
-
-        // Menggunakan metode alert() dari SweetAlert Laravel Wrapper
-        // alert()->warning($title, $text)->persistent(true)->showConfirmButton('Ya', '#3085d6')->showCancelButton('Batal', '#aaa')->reverseButtons(true);
-        // alert()->confirmDelete($title, $text)->persistent(true)->showConfirmButton('Ya', '#3085d6')->showCancelButton('Batal', '#aaa')->reverseButtons(true);
         $title = "Kamu Yakin Ingin Mneghapus ?";
         $text = "Data yang dihapus tidak bisa dikembalikan";
         confirmDelete($title, $text);

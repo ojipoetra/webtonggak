@@ -26,6 +26,9 @@
                 <a href="" class="a-none"><button type="button" class="list-group-item list-group-item-action">Radiologi</button></a>
                 <a href="" class="a-none"><button type="button" class="list-group-item list-group-item-action">Ruang Operasi</button></a>
                 <a href="" class="a-none"><button type="button" class="list-group-item list-group-item-action">Ruang Bersalin</button></a>
+                {{-- @foreach ($layanan as $data)
+                            <li><a class="dropdown-item" href="">{{$data->nama_layanan}}</a></li>
+                        @endforeach --}}
                 <li class="navbar-nav nav-item dropdown list-group-item list-group-item-action">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Ruang Rawat Inap

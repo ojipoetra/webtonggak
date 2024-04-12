@@ -29,13 +29,9 @@
                         Layanan Kami
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="poli-anak">Poliklinik Anak</a></li>
-                        <li><a class="dropdown-item" href="poli-penyakit-dalam">Poliklinik Penyakit Dalam</a></li>
-                        <li><a class="dropdown-item" href="">Poliklinik Bedah Umum</a></li>
-                        <li><a class="dropdown-item" href="poli-kandungan">Poliklinik Kebidanan dan Kandungan</a></li>
-                        <li><a class="dropdown-item" href="poli-umum">Poliklinik Umum</a></li>
-                        <li><a class="dropdown-item" href="poli-gigi">Poliklinik Gigi</a></li>
-                        <li><a class="dropdown-item" href="jadwal-dokter">Jadwal Dokter</a></li>
+                        @foreach ($layanan as $data)
+                            <li><a class="dropdown-item" href="{{route('layanan.viewpoli', $data->slug)}}">{{$data->nama_layanan}}</a></li>
+                        @endforeach
                     </ul>
                 </li>
                 <li class="nav-item dropdown px-3">
@@ -61,7 +57,11 @@
                 </li>
                 <a class="nav-link px-3" aria-current="page" href="karir">Karir <span class="badge bg-danger"></span></a>
                 <a class="nav-link px-3" aria-current="page" href="media-informasi/">Media Informasi</a>
-                <a href="pendaftaran-online"><button class="btn-green"><span class="badge text-bg-danger">Baru</span> DAFTAR ONLINE</button></a>
+                @auth
+                    <a href="/dashboard"><button class="btn-green"><i class="bi bi-grid-fill"></i> DASHBOARD</button></a>
+                @else
+                    <a href="#"><button class="btn-green"><span class="badge text-bg-danger">Baru</span> DAFTAR ONLINE</button></a>
+                @endauth
             </div>
         </div>
     </div>

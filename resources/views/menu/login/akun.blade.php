@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{{asset('css/login.css')}}">
+    <link rel="shortcut icon" href="{{asset('assets/logo.png')}}" type="image/x-icon">
     <title>RSTGH | Login/Register</title>
 </head>
 
@@ -27,7 +28,10 @@
                 <span>gunakan E-mail yang aktif !</span>
                 <input type="text" name="name" placeholder="Name" required autofocus autocomplete="off">
                 <input type="email" name="email" placeholder="Email" required autocomplete="off">
-                <input type="password" name="password" placeholder="Password" required autocomplete="off">
+                <input type="password" name="password" placeholder="Password" required autocomplete="off" title="Harus terdapat huruf & angka" pattern="^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]{8,}$">
+                {{-- @error('password')
+                    <span>{{$message}}</span>
+                @enderror --}}
                 <button type="submit">Register</button>
             </form>
         </div>

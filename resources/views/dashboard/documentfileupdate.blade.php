@@ -10,18 +10,14 @@
                                 <form action="/fileupload/{{$fileupdate->id}}" method="post" enctype="multipart/form-data">
                                     @method('put')
                                     @csrf
-                                    <label for="deskripsi" class="form-label">File</label>
+                                    <label for="deskripsi" class="form-label">Deskripsi</label>
                                     <div class="col-lg-12 col-md-12 mb-3">
                                         <input class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" type="text" id="deskripsi" value="{{old('deskripsi',$fileupdate->deskripsi)}}">
                                         @error('deskripsi')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                    {{-- <label for="formFile" class="form-label">File</label>
-                                    <div class="col-lg-12 col-md-12 mb-3">
-                                        <input class="form-control" name="dokumen" type="file" id="formFile">
-                                    </div> --}}
-                                    <label for="name_file" class="form-label">Deskripsi</label>
+                                    <label for="name_file" class="form-label">File</label>
                                     <div class="col-lg-12 col-md-12 mb-3">
                                         <input class="form-control" name="name_file" type="file" id="name_file">
                                     </div>

@@ -33,18 +33,26 @@ class AkunController extends Controller
         $validateData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email:dns|unique:users',
-            'password' => 'required|min:8'
+            'password' => 'required|regex:/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]{8,}$/'
         ]);
 
+
         $validateData['password'] = bcrypt($validateData['password']);
-        $title = 'Akun berhasil dibuat!';
-        $type = 'success';
-        $posision = 'top-right';
-        // Alert::success('Success', 'Data berhasil diupload');
-        toast($title, $type, $posision);
-        User::create($validateData);
-        return redirect('/akun/create');
+        if (User::create($validateData)) {
+            $title = 'Akun berhasil dibuat!';
+            $type = 'success';
+            $posision = 'top-right';
+            toast($title, $type, $posision);
+            return redirect('/akun/create')->with('success', 'Akun berhasil dibuat!');
+        } else if (!User::create($validateData)) {
+            $title = 'Akun gagal dibuat!';
+            $type = 'error';
+            $posision = 'top-right';
+            toast($title, $type, $posision);
+            return redirect('/akun/create')->with('error', 'Akun gagal dibuat!');
+        }
     }
+
 
     public function login(Request $request)
     {
@@ -54,11 +62,10 @@ class AkunController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/fileupload');
+            return redirect()->intended('/dashboard');
         }
-        alert()->error('Error', 'Email atau password salah!');
-        $title = 'Akun berhasil dibuat!';
-        $type = 'success';
+        $title = 'email atau password salah!';
+        $type = 'error';
         $posision = 'top-right';
         toast($title, $type, $posision);
         return back();

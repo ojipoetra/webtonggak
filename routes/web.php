@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\FileuploadController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\NavbarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('menu.home');
-});
+// Route::get('/', function () {
+//     return view('menu.home');
+// });
 
 // LAYANAN
 Route::get('/poli-anak', function () {
@@ -57,3 +59,18 @@ Route::resource('akun', AkunController::class)->middleware('guest');
 Route::post('/akun/create', [AkunController::class, 'login'])->name('akun/create')->middleware('guest');
 Route::post('/logout', [AkunController::class, 'logout'])->middleware('auth');
 Route::resource('fileupload', FileuploadController::class)->middleware('auth');
+
+// dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard.dashboard', ['judul' => 'Dashboard']);
+})->middleware('auth');
+
+// layanan
+Route::get('/', [LayananController::class, 'poli']);
+Route::get('/layanan/{slug}', [LayananController::class, 'viewpoli']);
+// Route::get('layanan/{id}', [NavbarController::class, 'viewpoli']);
+// Route::get('/layanan/{id}', [NavbarController::class, 'lihat']);
+// Route::get('/layanan/{layanan:slug}', [NavbarController::class, 'lihat']);
+Route::resource('layanan', LayananController::class)->middleware('auth');
+// Route::get('/layanan{layanan:slug}', [LayananController::class, 'detail']);
+Route::post('/upload', [LayananController::class, 'upload'])->name("ckeditor.upload");

@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}" />
     <link rel="stylesheet" href="{{asset('css/app-dark.css')}}" />
     <link rel="stylesheet" href="{{asset('css/fileuploader.css')}}" />
-    <link rel="shortcut icon" href="{{asset('assets/logo.png')}}" type="image/x-icon">
-    {{-- <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
-    <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" /> --}}
+    <link rel="stylesheet" href="{{asset('css/ckeditor.css')}}" />
+    <link rel="icon" href="{{asset('assets/logo.png')}}" type="image/x-icon">
 </head>
 
 <body>
@@ -20,7 +19,7 @@
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
-                        <a href=""><img src="{{asset('assets/logo.png')}}" alt="" style="height: 75px; weight:75px"></a>
+                        <a href="/"><img src="{{asset('assets/logo.png')}}" alt="" style="height: 75px; weight:75px"></a>
                         
                         <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -59,8 +58,8 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
-                        <li class="sidebar-item">
-                            <a href="index.html" class="sidebar-link">
+                        <li class="sidebar-item {{ Request::is('dashboard') ? 'active' : '' }}">
+                            <a href="{{url('/dashboard')}}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -76,6 +75,19 @@
                             <a href="{{url('/fileupload')}}" class="sidebar-link">
                                 <i class="bi bi-grid-1x2-fill"></i>
                                 <span>Document</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-title">Service &amp; Facility</li>
+                        <li class="sidebar-item {{ Request::is('layanan/create') ? 'active' : '' }}">
+                            <a href="{{url('/layanan/create')}}" class="sidebar-link">
+                                <i class="bi bi-headset"></i>
+                                <span>Layanan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item {{ Request::is('fasilitas') ? 'active' : '' }}">
+                            <a href="{{url('/fileupload/create')}}" class="sidebar-link">
+                                <i class="bi bi-bar-chart-line-fill"></i>
+                                <span>Fasilitas</span>
                             </a>
                         </li>
                     </ul>
@@ -94,9 +106,6 @@
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
                         <h3>{{$judul}}</h3>
-                        <p class="text-subtitle text-muted">
-                            masukan file yang ingin di upload
-                        </p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -105,7 +114,7 @@
                                     <form action="/logout" method="post">
                                         @csrf
                                         @method('POST')
-                                        <button type="submit" style="background: none; outline: none;">Logout <i class="bi bi-arrow-up-right-circle-fill fs-5"></i></button>
+                                        <button type="submit" class="btn btn-linght fw-semibold fs-5">Logout <i class="bi bi-arrow-up-right-circle-fill fs-5"></i></button>
                                         {{-- <a href="">Logout </a> --}}
                                     </form>
                                 </li>
@@ -124,7 +133,7 @@
                         <p>
                             Crafted with
                             <span class="text-danger"><i class="bi bi-heart"></i></span>
-                            by <a href="">ojiputra</a>
+                            by <a href="https://github.com/ojipoetra/">ojiputra</a>
                         </p>
                     </div>
                 </div>
