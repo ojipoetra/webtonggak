@@ -86,8 +86,8 @@
                                 <span>Info Kamar</span>
                             </a>
                         </li>
-                        <li class="sidebar-item {{ Request::is('layanan/create') ? 'active' : '' }}">
-                            <a href="{{ url('/layanan/create') }}" class="sidebar-link">
+                        <li class="sidebar-item {{ Request::is('layanan*') ? 'active' : '' }}">
+                            <a href="{{ url('/layanan') }}" class="sidebar-link">
                                 <i class="bi bi-headset"></i>
                                 <span>Layanan</span>
                             </a>

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('fileuploader', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->text('deskripsi', 100);
             $table->string('name_file', 100);
             $table->timestamps();

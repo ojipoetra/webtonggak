@@ -11,4 +11,9 @@ class Fileupload extends Model
     protected $fillable = ['deskripsi', 'name_file'];
     protected $table = 'fileuploader';
     // protected $primaryKey = 'code_doc';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

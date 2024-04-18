@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('infokamar', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('kelas');
             $table->string('Kamar');
             $table->integer('jumlahTT');

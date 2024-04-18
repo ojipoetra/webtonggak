@@ -18,6 +18,9 @@
                             <option value="VIP">VIP</option>
                             <option value="DELUXE">DELUXE</option>
                             <option value="BANGSAL">BANGSAL</option>
+                            <option value="kelas I">KELAS I</option>
+                            <option value="kelas II">KELAS II</option>
+                            <option value="kelas III">KELAS III</option>
                         </select>
                     </div>
                     <div class="mb-3">

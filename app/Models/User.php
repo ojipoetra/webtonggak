@@ -38,4 +38,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function infokamar()
+    {
+        return $this->hasMany(Infokamar::class);
+    }
+
+    public function fileupload()
+    {
+        return $this->hasMany(Fileupload::class);
+    }
 }

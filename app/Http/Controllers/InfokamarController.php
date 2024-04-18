@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Infokamar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class InfokamarController extends Controller
@@ -40,11 +41,12 @@ class InfokamarController extends Controller
         // Infokamar::create($infoKamar);
 
         $infokamar = new Infokamar();
-        $infokamar->kelas = $request->kelas;
-        $infokamar->kamar = $request->kamar;
+        $infokamar->kelas = strtoupper($request->kelas);
+        $infokamar->kamar = strtoupper($request->kamar);
         $infokamar->jumlahTT = $request->jumlahTT;
         $infokamar->jumlahTerisi = $request->jumlahTerisi;
         $infokamar->jumlahKosong = $request->jumlahKosong;
+        $infokamar->user_id = $request->user()->id;
         $infokamar->save();
         Alert::success('Success', 'Data berhasil disimpan');
         return redirect('kamar')->with('success', 'Data berhasil disimpan');
@@ -72,15 +74,15 @@ class InfokamarController extends Controller
     public function update(Request $request, Infokamar $infokamar)
     {
         $rules = $request->validate([
-            'kelas' => 'required|string',
-            'Kamar' => 'required|string',
+            'kelas' => 'required',
+            'Kamar' => 'required',
             'jumlahTT' => 'required|numeric',
             'jumlahTerisi' => 'required|numeric',
             'jumlahKosong' => 'required|numeric',
         ]);
 
-
         Infokamar::where('id', $infokamar->id)->update($rules);
+
         Alert::success('Success', 'Data berhasil diupdate');
 
         return redirect('/kamar')->with('success', 'Data berhasil diupdate');

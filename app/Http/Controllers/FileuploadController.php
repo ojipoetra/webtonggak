@@ -43,7 +43,7 @@ class FileuploadController extends Controller
         }
         Alert::success('Success', 'Data berhasil diupload');
 
-        Fileupload::create($validateData);
+        $request->user()->fileupload()->create($validateData);
         return redirect('/fileupload')->with('success', 'Data berhasil diupload');
     }
     /**
@@ -59,8 +59,6 @@ class FileuploadController extends Controller
      */
     public function edit(Fileupload $fileupload)
     {
-
-        // return view('dashboard.documentfileupdate', ['titte' => 'File Uploader (Update)'], compact('fileupload'));
         $fileupdate = Fileupload::find($fileupload->id);
         return view('dashboard.documentfileupdate', compact('fileupdate'), ['judul' => 'File Uploader (Update)']);
     }

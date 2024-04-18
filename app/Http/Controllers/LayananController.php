@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Layanan;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LayananController extends Controller
 {
@@ -12,9 +13,8 @@ class LayananController extends Controller
      */
     public function index()
     {
-        $layanan = Layanan::all();
-        // return view('menu.home', ['layanan' => $layanan]);
-        return view('coba', compact('layanan'), ['judul' => 'Layanan']);
+        $Datalayanan = Layanan::all();
+        return view('dashboard.layanan.layanan', compact('Datalayanan'), ['judul' => 'Layanan']);
     }
 
     // public function poli()
@@ -50,7 +50,10 @@ class LayananController extends Controller
         $layanan->slug = $validateData['slug'];
         $layanan->deskripsi = $validateData['deskripsi'];
         $layanan->gambar = $validateData['gambar'];
+
         $layanan->save();
+        Alert::success('Success', 'Data berhasil disimpan');
+        return redirect('/layanan');
     }
 
     public function upload(Request $request)
@@ -72,7 +75,7 @@ class LayananController extends Controller
     public function show(Layanan $layanan)
     {
         // return view('layanan', compact('layanan'), ['judul' => 'Layanan']);
-        return view('menu.layanan', ['layanan' => $layanan]);
+        // return view('menu.layanan', ['layanan' => $layanan]);
     }
 
     /**

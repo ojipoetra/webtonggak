@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\FileuploadController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfokamarController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\NavbarController;
@@ -20,10 +21,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('menu.home', ['judul' => 'Home']);
-});
-
+// Route::get('/', function () {
+//     return view('menu.home', ['judul' => 'Home']);
+// 
+Route::get('/', [HomeController::class, 'index']);
 // LAYANAN
 Route::get('/poli-anak', function () {
     return view('menu.layanan.polianak', ['judul' => 'Poli Anak']);
@@ -105,12 +106,5 @@ Route::post('/kamar', [InfokamarController::class, 'store']);
 Route::put('/kamar/{infokamar}', [InfokamarController::class, 'update']);
 Route::delete('/kamar/{infokamar}', [InfokamarController::class, 'destroy']);
 
-// Route::get('/', [LayananController::class, 'poli']);
-// Route::get('layanan/{id}', [LayananController::class, 'show']);
-// Route::get('/layanan/{slug}', [LayananController::class, 'viewpoli']);
-// Route::get('layanan/{id}', [NavbarController::class, 'viewpoli']);
-// Route::get('/layanan/{id}', [NavbarController::class, 'lihat']);
-// Route::get('/layanan/{layanan:slug}', [NavbarController::class, 'lihat']);
 Route::resource('layanan', LayananController::class)->middleware('auth');
-// Route::get('/layanan{layanan:slug}', [LayananController::class, 'detail']);
 Route::post('/upload', [LayananController::class, 'upload'])->name("ckeditor.upload");

@@ -17,9 +17,12 @@
                             <label for="kelas" class="form-label">Kelas</label>
                             <select class="form-select" id="kelas" name="kelas">
                                 <option value="{{ $data->kelas }}">{{ $data->kelas }}</option>
-                                <option value="VIP">VIP</option>
-                                <option value="DELUXE">DELUXE</option>
-                                <option value="BANGSAL">BANGSAL</option>
+                                <option value="vip">VIP</option>
+                                <option value="deluxe">DELUXE</option>
+                                <option value="bangsal">BANGSAL</option>
+                                <option value="kelas I">KELAS I</option>
+                                <option value="kelas II">KELAS II</option>
+                                <option value="kelas III">KELAS III</option>
                             </select>
                         </div>
                         <div class="mb-3">
