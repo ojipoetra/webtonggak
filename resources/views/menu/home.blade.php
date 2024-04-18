@@ -21,7 +21,6 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <!-- <th scope="col">No</th> -->
                             <th scope="col">Kelas</th>
                             <th scope="col">Nama Ruangan</th>
                             <th scope="col">Status</th>
@@ -51,6 +50,7 @@
                             <tr>
                                 <td>VIP</td>
                                 <td>R.Bahagia</td>
+                                <td></td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -104,7 +104,7 @@
             <a class="line-none">
                 <h1 class="bi bi-chevron-double-down animate__animated animate__bounce text-black"></h1>
             </a>
-            <a href="layanan/jadwal-dokter"><button class="btn-green-sm fw-bold">Lihat jadwal dokter</button></a>
+            <a href="{{url('jadwal-dokter')}}"><button class="btn-green-sm fw-bold">Lihat jadwal dokter</button></a>
         </div>
     </div>
 </div>

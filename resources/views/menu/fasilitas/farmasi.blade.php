@@ -15,37 +15,7 @@
                 <p>Instalasi Farmasi Rumah Sakit merupakan fasilitas penyelenggaraan kefarmasian dibawah pimpinan seorang Apoteker yang handal. Untuk mengadakan, menyediakan obat-obatan yang lengkap dan berkualitas serta mengelola seluruh aspek penyediaan perbekalan kesehatan di Rumah Sakit. Instalasi RS Tonggak Husada beroprasi selama 24 jam, dapat memudahkan pasien mendapatkan obat-obatan dan alat kesehatan yang dibutuhkan.</p>    
             </div>
         </div>
-        <div class="col-lg-3" data-aos="fade-up" data-aos-duration="1000">
-            <div class="list-group">
-                <button type="button" class="rounded-top btn-green-top" aria-current="true">
-                    <b>DAFTAR FASILITAS</b>
-                </button>
-                <a href="" class="a-none"><button type="button" class="list-group-item list-group-item-action">UGD</button></a>
-                <a href="" class="a-none"><button type="button" class="list-group-item list-group-item-action active-green">Instalasi Farmasi</button></a>
-                <a href="" class="a-none"><button type="button" class="list-group-item list-group-item-action">Laboratorium</button></a>
-                <a href="" class="a-none"><button type="button" class="list-group-item list-group-item-action">Radiologi</button></a>
-                <a href="" class="a-none"><button type="button" class="list-group-item list-group-item-action">Ruang Operasi</button></a>
-                <a href="" class="a-none"><button type="button" class="list-group-item list-group-item-action">Ruang Bersalin</button></a>
-                {{-- @foreach ($layanan as $data)
-                            <li><a class="dropdown-item" href="">{{$data->nama_layanan}}</a></li>
-                        @endforeach --}}
-                <li class="navbar-nav nav-item dropdown list-group-item list-group-item-action">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Ruang Rawat Inap
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="ranap-vip">VIP</a></li>
-                        <li><a class="dropdown-item" href="ranap-deluxe">Deluxe</a></li>
-                        <li><a class="dropdown-item" href="ranap">Bangsal</a></li>
-                    </ul>
-                </li>
-                <a href="ambulan" class="a-none"><button type="button" class="list-group-item list-group-item-action">Ambulan</button></a>
-                    <a href="kantin" class="a-none"><button type="button" class="list-group-item list-group-item-action">Kantin</button></a>
-                    <a href="mushola" class="a-none"><button type="button" class="list-group-item list-group-item-action">Mushola</button></a>
-                    <a href="parkiran-dan-halaman-depan" class="a-none"><button type="button" class="list-group-item list-group-item-action">Halaman Parkir dan Taman</button>
-                </a>
-            </div>
-        </div>
+        @include('menu.fasilitas.linkfasilitas')
     </div>
 </div>
 

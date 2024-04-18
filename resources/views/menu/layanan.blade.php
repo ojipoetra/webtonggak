@@ -6,7 +6,7 @@
         <div class="col-lg-9" data-aos="fade-up" data-aos-duration="1000">
             <img src="assets/poliklinik-anak.jpeg" class="img-fluid shadow rounded">
             <div class="col py-3">
-                <h1>{{$layanan->nama_layanan}}</h1>
+                <h1>PERCOBAAN</h1>
                 <h5>Layan Kami Tersedia Poliklinik Anak</h5>
                 <img src="assets/logo-circle.png" class="rounded-circle shadow-lg"><b><span class="px-2">RS Tonggak Husada</span></b>
                 <hr>

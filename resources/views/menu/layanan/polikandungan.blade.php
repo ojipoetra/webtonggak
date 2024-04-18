@@ -18,20 +18,7 @@
                 <p>RS Tonggak husada mempunyai tenaga perawat dan bidan yang terlatih serta dokter ahli spesialis kandungan dan kebidanan, untuk membantu para ibu yang ingin konsultasi seputar masalah kandungan dan kebidanan.</p>
             </div>
         </div>
-        <div class="col-lg-3" data-aos="fade-up" data-aos-duration="1000">
-            <div class="list-group">
-                <button type="button" class="rounded-top btn-green-top" aria-current="true">
-                    <b>DAFTAR LAYANAN</b>
-                </button>
-                <a href="poliklinik-anak" class="a-none"><button type="button" class="list-group-item list-group-item-action active-green">Poliklinik Anak</button></a>
-                <a href="poliklinik-penyakit-dalam" class="a-none"><button type="button" class="list-group-item list-group-item-action">Poliklinik Penyakit Dalam</button></a>
-                <a href="poliklinik-bedah-umum" class="a-none"><button type="button" class="list-group-item list-group-item-action">Poliklinik Bedah Umum</button></a>
-                <a href="poliklinik-kebidanan-dan-kandungan" class="a-none"><button type="button" class="list-group-item list-group-item-action">Poliklinik Kebidanan dan Kandungan</button></a>
-                <a href="poliklinik-umum" class="a-none"><button type="button" class="list-group-item list-group-item-action">Poliklinik Umum</button></a>
-                <a href="poliklinik-gigi" class="a-none"><button type="button" class="list-group-item list-group-item-action">Poliklinik Gigi</button></a>
-                <a href="jadwal-dokter" class="a-none"><button type="button" class="list-group-item list-group-item-action">Jadwal Dokter</button></a>
-            </div>
-        </div>
+        @include('menu.layanan.linklayanan')
     </div>
 </div>
 

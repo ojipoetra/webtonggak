@@ -4,15 +4,22 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-9" data-aos="fade-up" data-aos-duration="1000">
-            <img src="assets/ugd.jpeg" class="img-fluid shadow rounded">
+            <img src="assets/ranap.jpeg" class="img-fluid shadow rounded">
             <div class="col py-3">
-                <h1>RUANGAN UGD</h1>
-                <h5>Layan Kami Tersedia UGD 24 Jam</h5>
+                <h1>Ruangan Rawat Inap Bangsal</h1>
+                <h5>Layan Kami Tersedia Ruangan Rawat Inap Bangsal</h5>
                 <img src="assets/logo-circle.png" class="rounded-circle shadow-lg"><b><span class="px-2">RS Tonggak Husada</span></b>
                 <hr>
             </div>
             <div class="col">
-                <p>Unit Gawat Darurat (UGD) yang beroprasi selama 24 Jam, dilengkapi dengan peralatan medis dan perlengkapan medis yang canggih dan lengkap serta tenaga medis yang tanggap dan cekatan sehingga dapat memberikan pertolongan - pertolongan pertama pada pasien gawat darurat dengan cepat.</p>
+                <p>Untuk kelas III Kami memberikan fasilitas :</p>
+                <ol>
+                    <li>Ruang Kamar untuk 6 Pasien</li>
+                    <li>Ruang ber AC</li>
+                    <li>TV</li>
+                    <li>Kamar Mandi 2 Unit</li>
+                </ol>
+                </p>
             </div>
         </div>
         @include('menu.fasilitas.linkfasilitas')

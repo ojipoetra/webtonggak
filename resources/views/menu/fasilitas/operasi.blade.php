@@ -4,15 +4,15 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-9" data-aos="fade-up" data-aos-duration="1000">
-            <img src="assets/ugd.jpeg" class="img-fluid shadow rounded">
+            <img src="assets/operasi.jpg" class="img-fluid shadow rounded">
             <div class="col py-3">
-                <h1>RUANGAN UGD</h1>
-                <h5>Layan Kami Tersedia UGD 24 Jam</h5>
+                <h1>RUANG OPERASI</h1>
+                <h5>Layan Kami Tersedia Ruangan Operasi</h5>
                 <img src="assets/logo-circle.png" class="rounded-circle shadow-lg"><b><span class="px-2">RS Tonggak Husada</span></b>
                 <hr>
             </div>
             <div class="col">
-                <p>Unit Gawat Darurat (UGD) yang beroprasi selama 24 Jam, dilengkapi dengan peralatan medis dan perlengkapan medis yang canggih dan lengkap serta tenaga medis yang tanggap dan cekatan sehingga dapat memberikan pertolongan - pertolongan pertama pada pasien gawat darurat dengan cepat.</p>
+                <P>Kamar Operasi atau ruangan operasi merupakan bagian dari pelayanan rumah sakit yang diperlukan untuk memberikan sarana dan prasarana tindakan bedah. Layanan Bedah merupakan layanan unggulan di RS Tonggak Husada. RS Tonggak Husada memiliki tim bedah profesional yang terdiri dari dokte spesialis dan perawat yang berpengalaman sehingga mampu dengan tanggap dan cepat mengangani setiap masalah dalam pembedahan.</P>
             </div>
         </div>
         @include('menu.fasilitas.linkfasilitas')

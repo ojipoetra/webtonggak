@@ -12,21 +12,16 @@ class LayananController extends Controller
      */
     public function index()
     {
-        // $layanan = Layanan::all();
-        // return view('menu.home', ['layanan' => $layanan]);
-    }
-
-    public function poli()
-    {
         $layanan = Layanan::all();
-        return view('menu.home', ['layanan' => $layanan]);
+        // return view('menu.home', ['layanan' => $layanan]);
+        return view('coba', compact('layanan'), ['judul' => 'Layanan']);
     }
 
-    public function viewpoli($slug)
-    {
-        $layanan = Layanan::where('slug', $slug)->firstOrFail();
-        return view('layanan.show', compact('layanan'));
-    }
+    // public function poli()
+    // {
+    //     $layanan = Layanan::all();
+    //     return view('menu.home', ['layanan' => $layanan]);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -76,15 +71,8 @@ class LayananController extends Controller
      */
     public function show(Layanan $layanan)
     {
-        //
-    }
-
-    public function detail($id)
-    {
-        // $layananPoli = Layanan::where('slug', $slug)->first();
-        // return view('menu.layanan', ['layananPoli' => $layananPoli]);
-        // $layanan = Layanan::find($id);
-        // return view('menu.layanan', ['layanan' => $layanan]);
+        // return view('layanan', compact('layanan'), ['judul' => 'Layanan']);
+        return view('menu.layanan', ['layanan' => $layanan]);
     }
 
     /**

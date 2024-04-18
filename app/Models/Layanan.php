@@ -11,8 +11,8 @@ class Layanan extends Model
     protected $table = 'layanan';
     protected $guarded = 'id';
 
-    public function getRouteKeyName()
-    {
-        return 'id';
-    }
+    // public function getRouteKeyName()
+    // {
+    //     return 'id';
+    // }
 }
