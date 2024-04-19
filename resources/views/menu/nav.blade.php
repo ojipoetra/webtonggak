@@ -83,13 +83,13 @@
                              <hr class="dropdown-divider">
                          </li>
                          <li><a class="dropdown-item {{ Request::is('ambulan') ? 'active-green' : '' }}"
-                                 href="ruangan/ambulan">Ambulan</a></li>
+                                 href="#">Ambulan</a></li>
                          <li><a class="dropdown-item {{ Request::is('kantin') ? 'active-green' : '' }}"
                                  href="{{ url('kantin') }}">Kantin</a></li>
                          <li><a class="dropdown-item {{ Request::is('musola') ? 'active-green' : '' }}"
-                                 href="ruangan/mushola">Musholah</a></li>
+                                 href="#">Musholah</a></li>
                          <li><a class="dropdown-item {{ Request::is('parkir') ? 'active-green' : '' }}"
-                                 href="ruangan/parkiran-dan-halaman-depan">Halaman Parkir dan Taman</a></li>
+                                 href="#">Halaman Parkir dan Taman</a></li>
                      </ul>
                  </li>
                  <a class="nav-link px-3" aria-current="page" href="#">Karir <span

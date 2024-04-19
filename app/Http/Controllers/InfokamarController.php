@@ -15,7 +15,7 @@ class InfokamarController extends Controller
     public function index()
     {
         $datakamar = Infokamar::all();
-        return view('dashboard.infokamar', compact('datakamar'), ['judul' => 'Info Kamar']);
+        return view('dashboard.infokamar.infokamar', compact('datakamar'), ['judul' => 'Info Kamar']);
     }
 
     /**

@@ -64,7 +64,7 @@
             const kosong = modal.querySelector('.kosong');
 
             if (jumlah && terisi && kosong) {
-                kosong.addEventListener('keyup', function() {
+                kosong.addEventListener('mouseover', function() {
                     kosong.value = jumlah.value - terisi.value;
                 });
             }

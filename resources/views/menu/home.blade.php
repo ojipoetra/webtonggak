@@ -15,7 +15,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-11 my-3 rounded-2 bg-white px-4 py-4 shadow">
+            <div class="col-lg-11 my-3 rounded-2 bg-white px-4 py-4 shadow-sm">
                 <h3 class="text-center py-2">Info Ruangan Kosong <a type="button"><span class="badge bg-green fs-6"
                             data-bs-toggle="modal" data-bs-target="#staticBackdrop">Update</span></a></h3>
                 {{-- @foreach ($infokamar as $item)
@@ -26,7 +26,6 @@
                         <tr>
                             <th scope="col">Kelas</th>
                             <th scope="col">Kamar</th>
-                            <th scope="col" class="text-center">Jumlah TT</th>
                             <th scope="col" class="text-center">Terisi</th>
                             <th scope="col" class="text-center">Tersedia</th>
                         </tr>
@@ -36,7 +35,6 @@
                             <tr>
                                 <td>{{ $data->kelas }}</td>
                                 <td>{{ $data->Kamar }}</td>
-                                <td class="text-center">{{ $data->jumlahTT }} Bed </td>
                                 <td class="text-center">{{ $data->jumlahTerisi }} Bed </td>
                                 <td class="text-center">{{ $data->jumlahKosong }} Bed </td>
 
@@ -322,7 +320,7 @@
         <div class="pop-content">
             <a rel="noopener noreferrer" title="box">
                 <div class="popcontent">
-                    <a href="mudik_sehat_2023/"><img src="assets/PROMO USG WEB.png" alt="banner" width="100%"
+                    <a href="#"><img src="assets/PROMO USG WEB.png" alt="banner" width="100%"
                             height="" /></a>
                 </div>
             </a>

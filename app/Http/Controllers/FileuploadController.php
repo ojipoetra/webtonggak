@@ -15,8 +15,14 @@ class FileuploadController extends Controller
      */
     public function index()
     {
-        $documen = Fileupload::all();
-        return view('dashboard.documentfile', compact('documen'), ['judul' => 'File Uploader']);
+        if (auth()->user()->role == 'admin') {
+            $documen = Fileupload::all();
+            return view('dashboard.fileupload.documentfile', compact('documen'), ['judul' => 'File Uploader']);
+        } else {
+            auth()->user()->role == 'user';
+            $documen = Fileupload::where('user_id', auth()->user()->id)->get();
+            return view('dashboard.fileupload.documentfile', compact('documen'), ['judul' => 'File Uploader']);
+        }
     }
 
     /**
@@ -24,7 +30,7 @@ class FileuploadController extends Controller
      */
     public function create()
     {
-        return view('dashboard.fileuploader', ['judul' => 'File Uploader']);
+        return view('dashboard.fileupload.fileuploader', ['judul' => 'File Uploader']);
     }
 
     /**
@@ -60,7 +66,7 @@ class FileuploadController extends Controller
     public function edit(Fileupload $fileupload)
     {
         $fileupdate = Fileupload::find($fileupload->id);
-        return view('dashboard.documentfileupdate', compact('fileupdate'), ['judul' => 'File Uploader (Update)']);
+        return view('dashboard.fileupload.documentfileupdate', compact('fileupdate'), ['judul' => 'File Uploader (Update)']);
     }
 
     /**

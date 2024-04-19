@@ -93,7 +93,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item {{ Request::is('fasilitas') ? 'active' : '' }}">
-                            <a href="{{ url('/fileupload/create') }}" class="sidebar-link">
+                            <a href="{{ url('/fasilitas') }}" class="sidebar-link">
                                 <i class="bi bi-bar-chart-line-fill"></i>
                                 <span>Fasilitas</span>
                             </a>

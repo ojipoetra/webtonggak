@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\FileuploadController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfokamarController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\NavbarController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -92,7 +94,6 @@ Route::get('/kantin', function () {
 Route::resource('akun', AkunController::class)->middleware('guest');
 Route::post('/akun/create', [AkunController::class, 'login'])->name('akun/create')->middleware('guest');
 Route::post('/logout', [AkunController::class, 'logout'])->middleware('auth');
-Route::resource('fileupload', FileuploadController::class)->middleware('auth');
 
 // dashboard
 Route::get('/dashboard', function () {
@@ -100,11 +101,14 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 // layanan
+Route::get('/fasilitas', [FasilitasController::class, 'index'])->middleware('auth');
 // Route::resource('kamar', InfokamarController::class)->middleware('auth');
-Route::get('/kamar', [InfokamarController::class, 'index']);
-Route::post('/kamar', [InfokamarController::class, 'store']);
-Route::put('/kamar/{infokamar}', [InfokamarController::class, 'update']);
+// Route::get('/kamar', [InfokamarController::class, 'index']);
+// Route::post('/kamar', [InfokamarController::class, 'store']);
+// Route::put('/kamar/{infokamar}', [InfokamarController::class, 'update']);
 Route::delete('/kamar/{infokamar}', [InfokamarController::class, 'destroy']);
+Route::resource('fileupload', FileuploadController::class)->middleware('auth');
+Route::resource('kamar', InfokamarController::class)->middleware('auth');
 
 Route::resource('layanan', LayananController::class)->middleware('auth');
 Route::post('/upload', [LayananController::class, 'upload'])->name("ckeditor.upload");

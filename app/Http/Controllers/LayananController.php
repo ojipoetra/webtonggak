@@ -28,7 +28,7 @@ class LayananController extends Controller
      */
     public function create()
     {
-        return view('dashboard.form.formlayanan', ['judul' => 'Layanan']);
+        return view('dashboard.layanan.formlayanan', ['judul' => 'Layanan']);
     }
 
     /**
@@ -50,7 +50,7 @@ class LayananController extends Controller
         $layanan->slug = $validateData['slug'];
         $layanan->deskripsi = $validateData['deskripsi'];
         $layanan->gambar = $validateData['gambar'];
-
+        $layanan->user_id = $request->user()->id;
         $layanan->save();
         Alert::success('Success', 'Data berhasil disimpan');
         return redirect('/layanan');

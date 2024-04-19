@@ -9,9 +9,9 @@
         }
 
         .edit:hover::after {
-            content: "Edit";
+            content: "Ubah";
             position: absolute;
-            left: 80%;
+            right: 150px;
             background-color: #000;
             color: #fff;
             padding: 5px;
@@ -23,6 +23,7 @@
         .hapus:hover::after {
             content: "Hapus";
             position: absolute;
+            right: -3px;
             background-color: #000;
             color: #fff;
             padding: 5px;
@@ -66,9 +67,8 @@
                                                     class="bi bi-pencil-square"></i></button>
                                             <form action="/kamar/{{ $data->id }}" method="post" class="d-inline">
                                                 @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger hapus"
-                                                    data-confirm-delete="true"><i
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-danger hapus"><i
                                                         class="bi bi-trash3-fill fs-6 text-light"></button>
                                             </form>
                                         </td>
@@ -83,8 +83,8 @@
     </div>
 
 
-    @include('dashboard.form.forminfokamar')
-    @include('dashboard.form.formupdateinfokamar')
+    @include('dashboard.infokamar.forminfokamar')
+    @include('dashboard.infokamar.formupdateinfokamar')
 
     {{-- <script src="{{ asset('js/fileuploader.js') }}"></script> --}}
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js"
