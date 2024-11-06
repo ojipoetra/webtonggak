@@ -4,6 +4,7 @@ use App\Http\Controllers\AkunController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\FileuploadController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IklanController;
 use App\Http\Controllers\InfokamarController;
 use App\Http\Controllers\LayananController;
 use Illuminate\Support\Facades\Route;
@@ -99,7 +100,12 @@ Route::get('/kamar', [InfokamarController::class, 'index'])->middleware('auth');
 Route::post('/kamar', [InfokamarController::class, 'store'])->middleware('auth');
 Route::put('/kamar/{infokamar}', [InfokamarController::class, 'update'])->middleware('auth');
 Route::delete('/kamar/{infokamar}', [InfokamarController::class, 'destroy']);
+
 Route::resource('fileupload', FileuploadController::class)->middleware('auth');
 
 Route::resource('layanan', LayananController::class)->middleware('auth');
 Route::post('/upload', [LayananController::class, 'upload'])->name("ckeditor.upload");
+
+// Iklan
+Route::get('/iklan', [IklanController::class, 'index'])->middleware('auth');
+Route::post('/iklan', [IklanController::class, 'store'])->middleware('auth');

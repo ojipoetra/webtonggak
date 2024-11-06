@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid swiper mySwiper">
         <div class="swiper-wrapper">
-            <img src="assets/rstonggakhusada.jpg" alt="" class="img-fluid swiper-slide">
+        <img src="assets/rstonggakhusada.jpg" alt="" class="img-fluid swiper-slide">
             <img src="assets/rstonggakhusada002.jpg" alt="" class="img-fluid swiper-slide">
             <img src="assets/rstonggakhusada.jpg" alt="" class="img-fluid swiper-slide">
         </div>
@@ -320,7 +320,7 @@
         <div class="pop-content">
             <a rel="noopener noreferrer" title="box">
                 <div class="popcontent">
-                    <a href="#"><img src="assets/PROMO USG WEB.png" alt="banner" width="100%"
+                    <a href="#"><img src="assets/PROMO USG WEB.jpg" alt="banner" width="100%"
                             height="" /></a>
                 </div>
             </a>

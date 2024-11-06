@@ -98,6 +98,12 @@
                                 <span>Fasilitas</span>
                             </a>
                         </li>
+                        <li class="sidebar-item {{ Request::is('iklan') ? 'active' : '' }}">
+                            <a href="{{ url('/iklan') }}" class="sidebar-link">
+                                <i class="bi bi-badge-ad-fill"></i>
+                                <span>Iklan</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
