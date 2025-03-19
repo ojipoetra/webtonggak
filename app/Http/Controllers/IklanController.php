@@ -31,7 +31,6 @@ class IklanController extends Controller
         $validation = $request->validate([
             'judul' => 'required',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
         ]);
         $request->user()->iklan()->create($validation);
         return redirect('/iklan')->with('success', 'Data berhasil diupload');

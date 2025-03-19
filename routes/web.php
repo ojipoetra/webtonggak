@@ -8,6 +8,7 @@ use App\Http\Controllers\IklanController;
 use App\Http\Controllers\InfokamarController;
 use App\Http\Controllers\LayananController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------

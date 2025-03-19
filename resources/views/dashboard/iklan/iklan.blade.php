@@ -1,5 +1,6 @@
 @extends('dashboard.navbar')
 @section('dashboard')
+   <button></button>
    <table class="table table-striped">
       <thead class="table-info">
          <tr>
@@ -9,13 +10,7 @@
          </tr>
       </thead>
       <tbody>
-         @foreach ($dataiklan as $data)
-            <tr>
-               <td scope="row" class="text-center">{{ $loop->iteration }}</td>
-               <td>{{ $data->nama_iklan }}</td>
-               <td><img src="{{ asset('storage/' . $data->gambar) }}" alt="gambar" width="100px"></td>
-            </tr>
-         @endforeach
+         {{-- Code --}}
       </tbody>
    </table>
 @endsection
